@@ -23,7 +23,7 @@ A simple Flask-based web application to remove passwords from PDF files. Users c
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/suneel-DK/pdf-unlocker.git
+git clone https://github.com/Suneel-DK/pdf-unlocker.git
 cd pdf-unlocker
 ```
 
@@ -90,7 +90,7 @@ Please ensure your code follows the existing style and includes tests if applica
 
 ## Contact
 
-For issues or suggestions, open an issue on GitHub or contact [suneel-DK] via GitHub.
+For issues or suggestions, open an issue on GitHub or contact [Suneel-DK] via GitHub.
 
 ---
 
