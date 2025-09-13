@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Password Remover</title>
+    <style>
+        body {
+            font-family: 'Helvetica', Arial, sans-serif;
+            background-color: white;
+            color: black;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border: 2px solid black;
+            padding: 20px;
+            background-color: white;
+        }
+        label {
+            font-size: 16px;
+            text-align: left;
+        }
+        input[type="file"],
+        input[type="password"] {
+            padding: 10px;
+            border: 1px solid black;
+            background-color: white;
+            color: black;
+            font-size: 14px;
+        }
+        input[type="file"]::file-selector-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+        button {
+            background-color: black;
+            color: white;
+            padding: 12px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .disclaimer {
+            font-size: 14px;
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: #f5f5f5;
+            text-align: left;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: black;
+        }
+        /* Loading state */
+        button.loading::after {
+            content: "Processing...";
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Password Remover</h1>
+    <div class="disclaimer">
+        <strong>Legal Notice:</strong> It is illegal to remove passwords from PDFs you do not own or have explicit permission to modify. Use this tool only for PDFs you legally own or have authorization to unlock.
+    </div>
+    <form method="POST" enctype="multipart/form-data" onsubmit="this.querySelector('button').classList.add('loading'); this.querySelector('button').disabled = true;">
+        <label for="pdf">Upload PDF:</label>
+        <input type="file" id="pdf" name="pdf" accept=".pdf" required>
+        
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <div class="checkbox-container">
+            <input type="checkbox" id="legal" name="legal" required>
+            <label for="legal">I confirm this PDF is mine, and I am not using it for any illegal purpose.</label>
+        </div>
+        
+        <button type="submit">Unlock and Download</button>
+    </form>
+</body>
+</html>
